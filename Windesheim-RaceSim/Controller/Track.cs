@@ -12,11 +12,8 @@ public class Track
         Name = name;
         foreach (var sectie in sections)
         {
-            Section section = new Section(sectie);
+            var section = new Section(sectie);
             Sections?.AddLast(section);
         }
     }
-    
-
 }
-

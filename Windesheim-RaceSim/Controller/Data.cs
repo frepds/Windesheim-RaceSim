@@ -1,21 +1,51 @@
-﻿namespace Windesheim_RaceSim.Controller;
+﻿using Model;
+
+namespace Windesheim_RaceSim.Controller;
 
 public static class Data
 {
-    private static Competition Competition;
+    public static Competition Competition { get; set; }
 
     public static void Initialize(Competition competition)
     {
-        Competition = competition;
+        Competition = new Competition();
+        AddParticpants();
+        AddTracks();
     }
 
-    public static void Aanmaken()
+    public static void AddParticpants()
     {
-        Competition.Participants.Add(new Driver("Driver1", new Car(19, 10, 20, false), IParticipant.TeamColors.Red));
-        Competition.Participants.Add(new Driver("Driver2", new Car(18, 10, 19, false), IParticipant.TeamColors.Green));
-        Competition.Participants.Add(new Driver("Driver3",new Car(16, 10, 17, false), IParticipant.TeamColors.Blue));
-        Competition.Participants.Add(new Driver("Driver4",new Car(20, 10, 14, false), IParticipant.TeamColors.Yellow));
-        Competition.Participants.Add(new Driver("Driver5",new Car(20, 10, 14, false), IParticipant.TeamColors.Yellow));
+        
+        Competition.Participants.Add(
+            new Driver("Driver1", 10, 
+                new Car(10,20,40, false), TeamColors.Blue));
+        Competition.Participants.Add(
+            new Driver("Driver2", 10, 
+                new Car(10,20,40, false), TeamColors.Green));
+        Competition.Participants.Add(
+            new Driver("Driver3", 10, 
+                new Car(10,20,40, false), TeamColors.Grey));
+        Competition.Participants.Add(
+            new Driver("Driver4", 10, 
+                new Car(10,20,40, false), TeamColors.Red));
     }
-    
+
+    public static void AddTracks()
+    {
+        Competition.Tracks.Enqueue(
+            new Track(
+                "Vierkant", 
+                new []
+                {
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Straight,
+                    SectionTypes.Straight,
+                    SectionTypes.RightCorner,
+                    SectionTypes.Finish
+                })
+            );
+    }
 }
