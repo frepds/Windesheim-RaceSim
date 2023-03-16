@@ -8,14 +8,13 @@ public static class Data
     
     public static void Initialize(Competition competition)
     {
-        CurrentRace = CurrentRace;
+        Competition = competition;
         AddParticpants();
         AddTracks();
     }
 
     public static void AddParticpants()
     {
-        if (Competition == null) return;
         Competition.Participants.Add(
             new Driver("Driver1", 10,
                 new Car(10, 20, 40, false), TeamColors.Blue));
@@ -55,7 +54,6 @@ public static class Data
     public static void NextRace()
     {
         var nextTrack = Competition?.NextTrack();
-        if (nextTrack == null) return;
         if (Competition != null)
         {
             CurrentRace = new Race(nextTrack, Competition.Participants);
