@@ -1,16 +1,14 @@
 using Model;
 using Windesheim_RaceSim.Controller;
-
-
 namespace Windesheim_RaceSim;
 
 public class Program
 {
     public static void Main(string[] args)
     {
-        for (int i = 0; i < 101; i++)
+        for (var i = 0; i < 101; i++)
         {
-            Competition competition = new Competition(new List<IParticipant>(){}, new Queue<Track>());
+            var competition = new Competition(new List<IParticipant>(){}, new Queue<Track>());
             Data.Initialize(competition); // aanroepen van Initialize methode
 
             Data.NextRace(); // aanroepen van NextRace methode
