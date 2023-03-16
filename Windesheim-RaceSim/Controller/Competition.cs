@@ -15,12 +15,6 @@ public class Competition
 
     public Track NextTrack()
     {
-        foreach (var track in Tracks)
-        {
-            var s = Tracks.FirstOrDefault();
-            Tracks.Dequeue();
-            if (s != null) return s;
-        }
-        return null;
+        return (Tracks.Count > 0 ? Tracks.Dequeue() : null) ?? throw new InvalidOperationException();
     }
 }
