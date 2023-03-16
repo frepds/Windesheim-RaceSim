@@ -4,11 +4,12 @@ namespace Windesheim_RaceSim.Controller;
 
 public static class Data
 {
-    public static Competition Competition { get; set; }
-
+    public static Competition? Competition { get; set; }
+    public static Race? CurrentRace { get; set; }
+    
     public static void Initialize(Competition competition)
     {
-        Competition = new Competition();
+        CurrentRace = CurrentRace;
         AddParticpants();
         AddTracks();
     }
@@ -47,5 +48,12 @@ public static class Data
                     SectionTypes.Finish
                 })
             );
+    }
+
+    public static void NextRace()
+    {
+        Track currentTrack = Competition?.NextTrack() ?? throw new ArgumentNullException();
+        
+        
     }
 }
