@@ -7,12 +7,12 @@ public class Competition
     public List<IParticipant> Participants { get; set; }
     public Queue<Track> Tracks { get; set; }
 
-    public Competition()
+    public Competition(List<IParticipant> participants, Queue<Track> tracks)
     {
-        Participants = new List<IParticipant>();
-        Tracks = new Queue<Track>();
+        Participants = participants ?? throw new ArgumentNullException(nameof(participants));
+        Tracks = tracks ?? throw new ArgumentNullException(nameof(tracks));
     }
-    
+
     public Track NextTrack()
     {
         foreach (var track in Tracks)

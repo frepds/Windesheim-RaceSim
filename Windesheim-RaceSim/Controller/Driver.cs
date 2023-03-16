@@ -17,4 +17,3 @@ public class Driver : IParticipant
         TeamColor = teamColor;
     }
 }
-

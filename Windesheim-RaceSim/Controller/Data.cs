@@ -29,6 +29,9 @@ public static class Data
         Competition.Participants.Add(
             new Driver("Driver4", 10, 
                 new Car(10,20,40, false), TeamColors.Red));
+        Competition.Participants.Add(
+            new Driver("Driver5", 10, 
+                new Car(10,20,40, false), TeamColors.Yellow));
     }
 
     public static void AddTracks()

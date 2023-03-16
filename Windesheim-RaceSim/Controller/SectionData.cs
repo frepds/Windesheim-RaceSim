@@ -9,4 +9,3 @@ public class SectionData
     public int DistanceLeft { get; set; }
     public int DistanceRight { get; set; }
 }
-
