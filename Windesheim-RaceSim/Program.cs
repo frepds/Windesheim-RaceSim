@@ -53,7 +53,8 @@ public class Program
                     kleur += " ";
                 }
             }
-            print($"Kapot: {p.Equipment.IsBroken} |");
+
+            print(p.Equipment.IsBroken ? $"Kapot: {p.Equipment.IsBroken}  |" : $"Kapot: {p.Equipment.IsBroken} |");
             print($"{kleur} |");
             nextLine();
         }

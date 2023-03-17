@@ -16,74 +16,12 @@ public static class Data
 
     private static void AddParticpants()
     {
-        // Original
-        // Competition.Participants.Add(
-        //     new Driver("Driver1", new Random().Next(1,20),
-        //         new Car(10, 20, 40, false), TeamColors.Blue));
-        
-        var r = new Random();
-        Competition.Participants.Add(
-            new Driver("Driver1", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver2", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver3", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver4", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver5", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        
-        //Extra
-        Competition.Participants.Add(
-            new Driver("Driver6", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver7", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver8", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver9", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver10", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver11", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver12", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver13", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver14", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver15", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver16", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver17", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver18", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver19", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
-        Competition.Participants.Add(
-            new Driver("Driver20", r.Next(1,20),
-                new Car(r.Next(1,11), r.Next(1,100), r.Next(1,100), false), RandomKleur()));
+        for (var i = 1; i < 100; i++)
+        {
+            Competition.Participants.Add(
+                new Driver($"Driver{i}", MiddlePoints(),
+                    new Car(LowerPoints(), HigherPoints(), HigherPoints(), RandomBool()), RandomKleur()));
+        }
     }
 
     private static void AddTracks()
@@ -135,6 +73,32 @@ public static class Data
         );
     }
 
+    private static bool RandomBool()
+    {
+        var r = new Random();
+        var i = r.Next(0, 2);
+        return i == 0;
+    }
+
+    private static int LowerPoints()
+    {
+        var r = new Random();
+        return r.Next(1, 11);
+    }
+    
+    private static int MiddlePoints()
+    {
+        var r = new Random();
+        return r.Next(1, 20);
+    }
+    
+    private static int HigherPoints()
+    {
+        var r = new Random();
+        return r.Next(1, 100);
+    }
+    
+    
     private static TeamColors RandomKleur()
     {
         var r = new Random();
